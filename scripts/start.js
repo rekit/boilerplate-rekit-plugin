@@ -77,14 +77,13 @@ checkBrowsers(paths.appPath, isInteractive)
     const plugins = fs.readdirSync(featureDir).filter(name =>
       isDirectory(path.join(featureDir, name)),
     )
-    console.log('plugins: ', plugins);
     plugins.forEach(name => {
       entryConfig[name] = [
         // 'react-dev-utils/webpackHotDevClient?http://localhost:6080',
-        // `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
-        // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+        `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
+        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         paths.resolveApp(`src/features/${name}/entry.js`),
-        // paths.resolveApp(`src/features/${name}/style.less`),
+        paths.resolveApp(`src/features/${name}/style.less`),
       ];
     });
 

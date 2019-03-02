@@ -1,5 +1,4 @@
-// import axios from 'axios';
-// import plugin from '../plugin/plugin';
+// import history from 'rs/common/history';
 
 export default {
   mainMenu: {
@@ -15,7 +14,7 @@ export default {
     handleClick(key) {
       switch (key) {
         case 'pluginnameplaceholder-my-sample-page':
-          alert('hello plugin');
+          // history.push('/pluginnameplaceholder/sample-page');
           break;
         default:
           break;
