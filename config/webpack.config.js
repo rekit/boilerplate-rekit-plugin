@@ -459,6 +459,10 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new webpack.DllReferencePlugin({
+        context: paths.appSrc,
+        manifest: require('rekit-studio/build/dll-manifest.json'),
+      }),
       // This gives some necessary context to module not found errors, such as
       // the requesting resource.
       new ModuleNotFoundPlugin(paths.appPath),
