@@ -21,7 +21,6 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
 const {
-  choosePort,
   createCompiler,
   prepareProxy,
   prepareUrls,
@@ -35,7 +34,6 @@ const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
 
 // Tools like Cloud9 rely on this.
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || require('../rekit.json').devPort || 4000;
 const HOST = process.env.HOST || '0.0.0.0';
 
 if (process.env.HOST) {
@@ -51,20 +49,27 @@ if (process.env.HOST) {
   console.log();
 }
 
+const prjDir = path.join(__dirname, '..');
+function startRekitStudio() {
+  console.log('Starting Rekit Studio...');
+  const start = require('rekit-studio/lib/start');
+  start({
+    port: require('../rekit.json').devStudioPort,
+    devPluginsDir: path.join(prjDir),
+    projectRoot: prjDir,
+  });
+}
 // We require that you explictly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
+  // .then(() => {
+  //   // We attempt to use the default port but if it is busy, we offer the user to
+  //   // run on a different port. `choosePort()` Promise resolves to the next free port.
+  //   return choosePort(HOST, DEFAULT_PORT);
+  // })
   .then(() => {
-    // We attempt to use the default port but if it is busy, we offer the user to
-    // run on a different port. `choosePort()` Promise resolves to the next free port.
-    return choosePort(HOST, DEFAULT_PORT);
-  })
-  .then(port => {
-    if (port == null) {
-      // We have not found a port.
-      return;
-    }
+    const port = require('../rekit.json').devPort;
     // const config = configFactory('development');
     const entryConfig = {};
     const isDirectory = source => fs.lstatSync(source).isDirectory();
@@ -76,10 +81,10 @@ checkBrowsers(paths.appPath, isInteractive)
     plugins.forEach(name => {
       entryConfig[name] = [
         // 'react-dev-utils/webpackHotDevClient?http://localhost:6080',
-        `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
-        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+        // `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
+        // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         paths.resolveApp(`src/features/${name}/entry.js`),
-        paths.resolveApp(`src/features/${name}/style.less`),
+        // paths.resolveApp(`src/features/${name}/style.less`),
       ];
     });
 
@@ -109,6 +114,7 @@ checkBrowsers(paths.appPath, isInteractive)
       }
       console.log(chalk.cyan('Starting the development server...\n'));
       // openBrowser(urls.localUrlForBrowser);
+      setTimeout(startRekitStudio, 300);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

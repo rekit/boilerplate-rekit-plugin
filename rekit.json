@@ -1,8 +1,10 @@
 {
   "version": "1.0.0",
-  "devPort": 4000,
+  "devStudioPort": 4000,
+  "devPort": 4001,
   "appType": "rekit-react",
   "plugins": [],
+  "prjDir": null,
   "folders": [
     "scripts",
     "config"
