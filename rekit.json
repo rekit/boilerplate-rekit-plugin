@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "devPort": 4000,
+  "appType": "rekit-react",
+  "plugins": [],
+  "folders": [
+    "scripts",
+    "config"
+  ],
+  "files": [
+    "package.json",
+    "postCreate.js",
+    "rekit.json"
+  ],
+  "css": "less"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "pluginnameplaceholder",
+  "version": "1.0.0",
+  "appType": ["rekit-react", "rekit-plugin"],
+  "featureFiles": [
+    "src/Root.js",
+    "src/features",
+    "src/common/rootReducer.js",
+    "src/common/routeConfig.js"
+  ],
+  "isAppPlugin": false,
+  "dependencies": {}
+}
