@@ -49,13 +49,13 @@ if (process.env.HOST) {
   console.log();
 }
 
-const prjDir = path.join(__dirname, '..');
+const rekitJson = require('../rekit.json');
 function startRekitStudio() {
-  console.log('Starting Rekit Studio...');
+  const prjDir = rekitJson.prjDir || path.join(__dirname, '..');
   const start = require('rekit-studio/lib/start');
   start({
-    port: require('../rekit.json').devStudioPort,
-    devPluginsDir: path.join(prjDir),
+    port: rekitJson.devStudioPort,
+    devPluginsDir: path.join(path.join(__dirname, '..')),
     projectRoot: prjDir,
   });
 }
@@ -69,7 +69,7 @@ checkBrowsers(paths.appPath, isInteractive)
   //   return choosePort(HOST, DEFAULT_PORT);
   // })
   .then(() => {
-    const port = require('../rekit.json').devPort;
+    const port = rekitJson.devPort;
     // const config = configFactory('development');
     const entryConfig = {};
     const isDirectory = source => fs.lstatSync(source).isDirectory();
