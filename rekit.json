@@ -12,6 +12,7 @@
   "files": [
     "package.json",
     "postCreate.js",
+    "babel.config.js",
     "rekit.json"
   ],
   "css": "less"

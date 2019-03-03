@@ -63,23 +63,18 @@ function startRekitStudio() {
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
-  // .then(() => {
-  //   // We attempt to use the default port but if it is busy, we offer the user to
-  //   // run on a different port. `choosePort()` Promise resolves to the next free port.
-  //   return choosePort(HOST, DEFAULT_PORT);
-  // })
   .then(() => {
     const port = rekitJson.devPort;
     // const config = configFactory('development');
     const entryConfig = {};
     const isDirectory = source => fs.lstatSync(source).isDirectory();
     const featureDir = path.join(__dirname, '../src/features');
-    const plugins = fs.readdirSync(featureDir).filter(name =>
-      isDirectory(path.join(featureDir, name)),
-    )
+    const plugins = fs
+      .readdirSync(featureDir)
+      .filter(name => isDirectory(path.join(featureDir, name)));
+    console.log('port: ', port);
     plugins.forEach(name => {
       entryConfig[name] = [
-        // 'react-dev-utils/webpackHotDevClient?http://localhost:6080',
         `webpack-dev-server/client?http://localhost:${port}`, // WebpackDevServer host and port
         'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         paths.resolveApp(`src/features/${name}/entry.js`),
@@ -87,9 +82,14 @@ checkBrowsers(paths.appPath, isInteractive)
       ];
     });
 
+    const originalConfig = configFactory('development');
     const config = {
-      ...configFactory('development'),
+      ...originalConfig,
       entry: entryConfig,
+      output: {
+        ...originalConfig.output,
+        publicPath: `http://localhost:${rekitJson.devPort}/`,
+      },
     };
 
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';

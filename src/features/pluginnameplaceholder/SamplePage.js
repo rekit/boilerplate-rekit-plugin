@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader/root';
+import { setConfig } from 'react-hot-loader';
 
-export default class SamplePage extends Component {
-  static propTypes = {
+setConfig({ logLevel: 'debug' })
 
-  };
+console.log('sample page');
+export class SamplePage extends Component {
+  static propTypes = {};
 
   render() {
     return (
@@ -13,3 +16,4 @@ export default class SamplePage extends Component {
     );
   }
 }
+export default hot(SamplePage);
