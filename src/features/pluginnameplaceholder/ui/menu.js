@@ -1,20 +1,18 @@
-import history from 'rs/common/history';
-
 export default {
   mainMenu: {
     fillMenuItems(items) {
       items.push({
-        label: 'Sample Page',
+        label: 'Say Hello',
         icon: 'anticon-smile',
         iconColor: '#555',
-        key: 'pluginnameplaceholder-my-sample-page',
+        key: 'pluginnameplaceholder-say-hello',
         order: 1,
       });
     },
-    handleClick(key) {
+    handleMenuClick(key) {
       switch (key) {
-        case 'pluginnameplaceholder-my-sample-page':
-          history.push('/pluginnameplaceholder/sample-page');
+        case 'pluginnameplaceholder-say-hello':
+          alert('Hello plugin!');
           break;
         default:
           break;

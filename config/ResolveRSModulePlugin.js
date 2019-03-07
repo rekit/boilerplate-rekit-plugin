@@ -6,11 +6,7 @@ const paths = require('./paths');
 function ResolveRSModulePlugin(alias) {
   this.alias = alias || 'rs';
 }
-console.log(
-  'ddl',
-  Object.keys(dllManifest.content).length,
-  dllManifest.content['./features/common/SVGIcon.js'],
-);
+console.log('number of dll modules', Object.keys(dllManifest.content).length);
 ResolveRSModulePlugin.prototype.apply = function(resolver) {
   resolver.plugin('file', (request, callback) => {
     const rsKey = `/node_modules/${this.alias}/`;

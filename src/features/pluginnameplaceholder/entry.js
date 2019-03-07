@@ -11,4 +11,3 @@ const toExport = {
 };
 
 window.__REKIT_PLUGINS.push(toExport);
-console.log('hello rekit plugin');
