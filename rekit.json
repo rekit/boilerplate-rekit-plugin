@@ -12,8 +12,6 @@
   "files": [
     "package.json",
     "postCreate.js",
-    "babel.config.js",
-    ".gitignore",
     "rekit.json"
   ],
   "css": "less"
