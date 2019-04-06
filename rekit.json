@@ -2,6 +2,7 @@
   "version": "1.0.0",
   "devStudioPort": 4000,
   "devPort": 4001,
+  "servePort": 4002,
   "appType": "rekit-react",
   "plugins": [],
   "prjDir": "/Users/pwang7/workspace4/f22",
