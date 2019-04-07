@@ -1,4 +1,9 @@
 const path = require('path');
-const start = require('rekit-studio/lib/start');
+const start = require('rekit-studio/lib/startDevServer');
 
-start({ pluginPrj: path.join(__dirname, '..') });
+const root = path.join(__dirname, '..');
+start({
+  projectRoot: root,
+  pluginPrj: root,
+  port: require('../rekit.json').devPort,
+});
