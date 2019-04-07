@@ -13,7 +13,6 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "rekit-studio": "file:../rekit-studio"
+    "rekit-studio-sdk": "next"
   }
 }

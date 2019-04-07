@@ -1,5 +1,5 @@
 const path = require('path');
-const start = require('rekit-studio/lib/start');
+const start = require('rekit-studio-sdk/lib/start');
 
 const root = path.join(__dirname, '..');
 start({
