@@ -11,19 +11,18 @@ const _ = require('lodash');
 
 const prjPath = __dirname;
 
-
 function postCreate(args) {
   // Empty readme
   fs.writeFileSync(path.join(prjPath, 'README.md'), '# README\n');
 
   // Remove unnecessary files
-  ['.travis.yml', 'yarn.lock', 'LICENSE']
+  ['.travis.yml', 'yarn.lock', 'LICENSE', 'package-lock.json']
     .map(f => path.join(prjPath, f))
     .forEach(file => fs.existsSync(file) && fs.unlinkSync(file));
 
   const name = args.name.replace(/^rekit-plugin-/, '');
   // Clean package.json
-  const pkgJsonPath = path.join(prjPath, 'src/features/pluginnameplaceholder/package.json');
+  const pkgJsonPath = path.join(prjPath, 'package.json');
   const pkgJson = require(pkgJsonPath); // eslint-disable-line
   pkgJson.name = _.kebabCase(`rekit-plugin-${name}`);
   fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, '  '));
@@ -41,12 +40,6 @@ function postCreate(args) {
 
   // Remove build folder
   fs.removeSync(path.join(prjPath, 'src/features/pluginnameplaceholder/build'));
-
-  // Rename pluginnameplaceholder in source files
-  fs.renameSync(
-    path.join(prjPath, 'src/features/pluginnameplaceholder'),
-    path.join(prjPath, `src/features/${dashedName}`),
-  );
 }
 
 module.exports = postCreate;
