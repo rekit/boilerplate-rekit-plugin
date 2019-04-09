@@ -2,7 +2,6 @@
   "name": "boilerplate-rekit-plugin",
   "version": "1.0.0",
   "private": false,
-  "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
@@ -12,7 +11,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "dependencies": {
+  "devDependencies": {
     "rekit-studio-sdk": "next"
   }
 }

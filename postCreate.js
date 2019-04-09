@@ -16,9 +16,9 @@ function postCreate(args) {
   fs.writeFileSync(path.join(prjPath, 'README.md'), '# README\n');
 
   // Remove unnecessary files
-  ['.travis.yml', 'yarn.lock', 'LICENSE', 'package-lock.json']
+  ['build', '.travis.yml', 'yarn.lock', 'LICENSE', 'package-lock.json']
     .map(f => path.join(prjPath, f))
-    .forEach(file => fs.existsSync(file) && fs.unlinkSync(file));
+    .forEach(file => fs.existsSync(file) && fs.removeSync(file));
 
   const name = args.name.replace(/^rekit-plugin-/, '');
   // Clean package.json
@@ -29,8 +29,8 @@ function postCreate(args) {
 
   const dashedName = _.kebabCase(name);
   // Rename pluginnameplaceholder to real plugin name.
-  ['route.js', 'entry.js', `ui/menu.js`].forEach(file => {
-    const absPath = path.join(prjPath, 'src/features/pluginnameplaceholder', file);
+  ['features/home/route.js', 'features/home/entry.js', `ext/menu.js`].forEach(file => {
+    const absPath = path.join(prjPath, 'src', file);
     const text = fs
       .readFileSync(absPath)
       .toString()
