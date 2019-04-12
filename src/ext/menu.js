@@ -12,7 +12,7 @@ export default {
     handleMenuClick(key) {
       switch (key) {
         case 'pluginnameplaceholder-say-hello':
-          alert('Hello plugin!');
+          alert('Hello Rekit Plugin!');
           break;
         default:
           break;

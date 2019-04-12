@@ -2,9 +2,8 @@
   "version": "1.0.0",
   "devPort": 4000,
   "servePort": 4001,
-  "appType": "rekit-react",
+  "appType": "rekit-plugin",
   "plugins": [],
-  "prjDir": "/Users/pwang7/workspace4/f22",
   "folders": [
     "core",
     "scripts"
