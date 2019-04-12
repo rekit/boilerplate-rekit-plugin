@@ -10,6 +10,7 @@
   "devDependencies": {
     "rekit-studio-sdk": "next"
   },
+  "rekitPlugin": {},
   "eslintConfig": {
     "extends": "react-app"
   }

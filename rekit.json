@@ -1,17 +1,13 @@
 {
-  "version": "1.0.0",
   "devPort": 4000,
   "servePort": 4001,
   "appType": "rekit-plugin",
-  "plugins": [],
+  "css": "less",
   "folders": [
-    "core",
     "scripts"
   ],
   "files": [
     "package.json",
-    "postCreate.js",
     "rekit.json"
-  ],
-  "css": "less"
+  ]
 }
