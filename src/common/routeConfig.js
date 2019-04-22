@@ -1,3 +1,5 @@
+/* Normally you don't need to modify this file, it's mainly maintained by Rekit */
+
 import homeRoute from '../features/home/route';
 
 // NOTE: DO NOT CHANGE the 'childRoutes' name and the declaration pattern.
@@ -7,7 +9,7 @@ const childRoutes = [homeRoute];
 const routes = [
   {
     path: '/boilerplate-rekit-plugin',
-    childRoutes: [...childRoutes].filter(
+    childRoutes: childRoutes.filter(
       r => r.component || (r.childRoutes && r.childRoutes.length > 0),
     ),
   },

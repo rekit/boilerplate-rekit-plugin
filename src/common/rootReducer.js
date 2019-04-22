@@ -1,3 +1,5 @@
+/* Normally you don't need to modify this file, it's mainly maintained by Rekit */
+
 import { combineReducers } from 'redux';
 import homeReducer from '../features/home/redux/reducer';
 
