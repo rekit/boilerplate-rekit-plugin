@@ -8,6 +8,7 @@
   },
   "files": [
     "build",
+    "core",
     "package.json"
   ],
   "scripts": {
