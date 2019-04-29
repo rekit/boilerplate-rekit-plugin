@@ -3,6 +3,7 @@
   "servePort": 4001,
   "studioPort": 4002,
   "appType": "rekit-plugin",
+  "rekitTest": true,
   "css": "less",
   "folders": [
     "scripts"
