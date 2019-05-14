@@ -5,11 +5,6 @@
   "appType": "rekit-plugin",
   "rekitTest": true,
   "css": "less",
-  "folders": [
-    "scripts"
-  ],
-  "files": [
-    "package.json",
-    "rekit.json"
-  ]
+  "exclude": [".*", "**/.*", "package-lock.json", "yarn.lock", "babel.config.js"],
+  "include": []
 }
