@@ -3,6 +3,7 @@
   "servePort": 4001,
   "studioPort": 4002,
   "appType": "rekit-plugin",
+  "projectRoot": "",
   "rekitTest": true,
   "css": "less",
   "exclude": [".*", "**/.*", "package-lock.json", "yarn.lock", "babel.config.js"],
