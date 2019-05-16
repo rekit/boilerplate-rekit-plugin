@@ -20,7 +20,7 @@
     "test": "node scripts/test.js"
   },
   "devDependencies": {
-    "rekit-studio-sdk": "next"
+    "rekit-studio-sdk": "^3.0.0-beta"
   },
   "rekitPlugin": {},
   "eslintConfig": {
