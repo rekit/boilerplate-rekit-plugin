@@ -9,6 +9,8 @@
   "files": [
     "build",
     "core",
+    "appType.json",
+    "logo.png",
     "package.json"
   ],
   "scripts": {
