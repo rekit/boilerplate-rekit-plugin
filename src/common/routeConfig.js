@@ -8,7 +8,7 @@ const childRoutes = [homeRoute];
 
 const routes = [
   {
-    path: '/boilerplate-rekit-plugin',
+    path: '/plugin-pluginnameplaceholder',
     childRoutes: childRoutes.filter(
       r => r.component || (r.childRoutes && r.childRoutes.length > 0),
     ),
