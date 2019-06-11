@@ -27,8 +27,5 @@
   "rekitPlugin": {},
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "dependencies": {
-    "cross-env": "^5.2.0"
   }
 }
