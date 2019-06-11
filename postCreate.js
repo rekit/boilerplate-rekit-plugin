@@ -29,7 +29,7 @@ function postCreate(args) {
 
   const dashedName = _.kebabCase(name);
   // Rename pluginnameplaceholder to real plugin name.
-  ['features/home/route.js', 'common/routeConfig', 'ext/menu.js', 'index.js'].forEach(file => {
+  ['features/home/route.js', 'common/routeConfig.js', 'ext/menu.js', 'index.js'].forEach(file => {
     const absPath = path.join(prjPath, 'src', file);
     const text = fs
       .readFileSync(absPath)
