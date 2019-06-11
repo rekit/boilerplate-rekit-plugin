@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-rekit-plugin",
+  "name": "rekit-plugin-pluginnameplaceholder",
   "version": "1.0.0",
   "homepage": "https://github.com/rekit/boilerplate-rekit-plugin",
   "repository": {
@@ -14,9 +14,9 @@
     "package.json"
   ],
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "cross-env PORT=4000 node scripts/start.js -d ./",
     "build": "node scripts/build.js",
-    "serve": "node scripts/serve.js",
+    "serve": "cross-env PORT=4001 node scripts/serve.js -d ./",
     "deploy": "node scripts/deploy.js",
     "undeploy": "node scripts/undeploy.js",
     "test": "node scripts/test.js"
@@ -27,5 +27,8 @@
   "rekitPlugin": {},
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0"
   }
 }

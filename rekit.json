@@ -1,7 +1,4 @@
 {
-  "devPort": 4000,
-  "servePort": 4001,
-  "studioPort": 4002,
   "appType": "rekit-plugin",
   "projectRoot": "",
   "rekitTest": true,
