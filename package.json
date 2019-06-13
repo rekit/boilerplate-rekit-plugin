@@ -24,7 +24,9 @@
   "devDependencies": {
     "rekit-studio-sdk": ">3.0.0-beta"
   },
-  "rekitPlugin": {},
+  "rekitPlugin": {
+    "rekitStudio": "3.0.0"
+  },
   "eslintConfig": {
     "extends": "react-app"
   }
